@@ -1,0 +1,77 @@
+Test Plan - Provider Platform Quality Assurance Evaluation
+
+1. Objective:
+   The objective of this test plan is to evaluate the quality and functionality of the healthcare Provider Platform.
+   The focus is on validating core workflows such as Login, Dashboard access, Add Patient, and Logout.
+   The automation is done using Selenium with Python and Pytest.
+
+2. Scope:
+   - Functional Testing:
+     - Login (positive and negative)
+     - Dashboard patient table visibility
+     - Add Patient form validations and data creation
+     - Logout process
+   - UI/UX Testing:
+     - Field alignment and consistency
+     - User-friendly error messages
+   - Automation:
+     - Automate key flows using Page Object Model (POM)
+     - HTML report generation using pytest-html
+
+3. Assumptions:
+   - Application URL: https://qa-takehome.dtxplus.com
+   - Credentials: Username: dtxplus | Password: dtxplus
+   - "Date Added" field in Add Patient is system-generated
+   - Platform is expected to work on latest versions of Chrome
+
+4. Out of Scope:
+   - Performance testing
+   - Backend/API validation (unless explicitly asked)
+   - Multi-browser compatibility
+
+5. Test Methodology:
+   - Pytest with Selenium WebDriver
+   - Page Object Model (POM) design for reusable automation
+   - Priority tagging using @pytest.mark (critical, high, medium, low)
+   - Manual and automated tests executed side by side
+
+6. Test Tools & Frameworks:
+   - Python 3.10+
+   - Selenium 4.x
+   - Pytest
+   - Pytest-HTML
+   - GitHub (version control)
+
+7. Risk & Priority Analysis:
+
+   | Feature       | Risk  | Priority |
+   |---------------|-------|----------|
+   | Login         | High  | High     |
+   | Dashboard     | Low   | Medium   |
+   | Add Patient   | High  | Critical |
+   | Logout        | Low   | Low      |
+
+8. Test Data:
+   - Valid login: dtxplus / dtxplus
+   - Patient data: dynamically generated with MRN uniqueness
+
+9. Deliverables:
+   - README.md with setup and usage
+   - Manual Test Plan (this file)
+   - Bug Report
+   - Automation Scripts
+   - Test Execution Report (`report.html`)
+   - requirements.txt for dependency setup
+
+10. Reporting:
+   - HTML reports generated automatically using pytest-html
+   - Bug reports captured in a separate document (BugReport.txt)
+
+11. Schedule:
+   - Day 1: Manual testing and automation script development
+   - Day 2: Automation completion, report generation, documentation, submission
+
+12. Exit Criteria:
+   - All critical and high priority test cases not pass
+   - Known bugs documented in BugReport.txt
+   - Scripts verified with HTML report output

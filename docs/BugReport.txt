@@ -1,0 +1,131 @@
+Bug Report - Provider Platform
+
+Bug 1: Login allowed with only username (no password)
+Steps:
+1. Go to login page
+2. Enter a random username
+3. Leave the password field empty
+4. Click Login
+Expected: Error message should display or login should be blocked
+Actual: User is logged in without entering a password
+Severity: High
+Priority: Critical
+
+
+Bug 2: User is logged out on page refresh after login
+Steps:
+1. Go to login page
+2. Login with valid credentials
+3. After reaching the dashboard, press browser refresh (F5 or Ctrl+R)
+Expected: Dashboard should reload and keep the user session active
+Actual: User is logged out and redirected back to login page
+Severity: Medium
+Priority: High
+
+Bug 3: Phone number allows characters
+Steps:
+1. Open Add Patient
+2. Enter letters in Phone field
+Expected: Input should allow only numbers
+Actual: Letters are accepted
+Severity: Medium
+Priority: High
+
+Bug 4: Date of Birth allows future date submission
+Steps:
+1. Go to Add Patient page
+2. Enter a future date in the Date of Birth field (e.g., 31/12/2090)
+3. Fill other mandatory fields
+4. Click Submit
+Expected: Error message should display or future dates should be restricted
+Actual: Form is submitted successfully with a future date
+Severity: Medium
+Priority: High
+
+Bug 5: "Date Added (Hospitalized)" allows value after Discharge Date & Time
+Steps:
+1. Go to Add Patient page
+2. Enter a discharge date & time (e.g., 12/01/2025 10:00 AM)
+3. Fill other required fields and submit the form
+Expected: Validation should prevent submission or show error: "Hospitalized date cannot be after discharge date"
+Actual: Form is submitted successfully with an invalid date sequence
+Severity: High
+Priority: High
+
+Bug 6: No min/max validation in input fields
+Steps:
+1. Go to Add Patient page
+2. Enter invalid values like:
+   - MRN: negative number or excessively long string
+   - Phone Number: less than 10 digits or 100+ digits
+   - First Name: less than 1 digits or 100+ digits
+   - Last Name: less than 10 digits or 100+ digits
+   - Date of Birth: extremely old date (e.g., 01/01/1800)
+   - Discharge Date: far future date (e.g., 01/01/3000 10:00 PM)
+3. Click Submit
+Expected: Fields should enforce valid min/max limits (e.g., MRN length, phone digit length, DOB not before 1900 or after today)
+Actual: Form accepts invalid lengths or unrealistic dates and proceeds to submit
+Severity: Medium
+Priority: High
+
+Bug 7: Timezone and Language dropdowns accept manipulated values from Inspect
+Steps:
+1. Go to Add Patient page
+2. Open browser Inspect Element
+3. Modify the value of "Timezone" or "Language" dropdown options (e.g., change "English" to "FakeLanguage")
+4. Select the modified option and submit the form
+Expected: Form should reject invalid dropdown values and show an error
+Actual: Form is submitted and invalid value is accepted
+Severity: High
+Priority: High
+
+Bug 8: System allows duplicate MRN with trailing spaces
+Steps:
+1. Add a patient with MRN value "101"
+2. Try to add another patient with MRN value "101 " (with a trailing space)
+3. Submit the form
+Expected: System should detect it as a duplicate and prevent submission
+Actual: System accepts "101 " as a new MRN and allows submission
+Severity: High
+Priority: Critical
+
+Bug 9: Website does not support responsive design
+Steps:
+1. Open the application on a mobile device or tablet
+2. Or resize the browser window to a smaller screen size
+3. Observe the layout and interactions
+Expected: Website should adapt to smaller screens (responsive layout, mobile-friendly elements)
+Actual: Layout stays fixed, requires horizontal scrolling, and is not optimized for smaller viewports
+Severity: Low
+Priority: Medium
+
+Bug 10: Input fields allow only spaces and form gets submitted
+Steps:
+1. Go to Add Patient page
+2. Enter only space(s) in the following fields:
+   - MRN
+   - First Name
+   - Last Name
+   - Date of Birth
+   - Discharge Date & Time
+   - Phone Number
+3. Fill any dropdowns if required and submit the form
+Expected: System should display validation errors like "This field is required" or "Invalid input"
+Actual: Form is submitted successfully even with only spaces in critical fields
+Severity: High
+Priority: High
+
+Bug 11: Edit and Delete options not visible for patients
+Steps:
+1. Login and navigate to the Dashboard
+2. Observe the patient table
+3. Try to locate "Edit" or "Delete" options for any patient entry
+Expected: Each patient entry should have Edit and Delete options (e.g., buttons or icons)
+Actual: Edit and Delete options are not displayed
+Severity: Medium
+Priority: High
+
+
+
+
+
