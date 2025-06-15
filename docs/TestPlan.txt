@@ -72,6 +72,6 @@ Test Plan - Provider Platform Quality Assurance Evaluation
    - Day 2: Automation completion, report generation, documentation, submission
 
 12. Exit Criteria:
-   - All critical and high priority test cases not pass
+   - All critical and high priority test cases pass
    - Known bugs documented in BugReport.txt
    - Scripts verified with HTML report output
