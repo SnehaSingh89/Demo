@@ -16,7 +16,7 @@ def test_valid_login(browser):
     assert button_text == 'Patients', f"Expected 'Patients' but got '{button_text}'"
 
 
-@pytest.mark.medium
+@pytest.mark.high
 def test_invalid_login_with_only_username(browser):
     login = LoginPage(browser)
     login.open(config.BASE_URL)
@@ -30,7 +30,7 @@ def test_invalid_login_with_only_username(browser):
         assert False, "Expected alert not found after invalid login"
 
 
-@pytest.mark.medium
+@pytest.mark.high
 def test_invalid_login_with_wrong_username_password(browser):
     login = LoginPage(browser)
     login.open(config.BASE_URL)
